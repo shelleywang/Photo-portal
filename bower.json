@@ -1,0 +1,15 @@
+{
+  "name": "photo-portal",
+  "version": "0.0.1",
+  "description": "photo sharing site",
+  "author": "Shelley Wang",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
