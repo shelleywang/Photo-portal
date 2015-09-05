@@ -29,5 +29,6 @@ node_modules
 #Bower
 lib/
 
-build.min.js
-style.min.css
+# For concat/minified files in public/
+public/build*.js
+public/style*.css

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       },
       css: {
         src: 'client/css/*.css',
-        dest: 'public/concat.css'
+        dest: 'public/style.css'
       }
     },
 
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      files: ['Gruntfile.js', 'client/**/*.js', 'public/**/*.js', 'server/**/*.js'],
+      files: ['Gruntfile.js', 'client/**/*.js', 'server/**/*.js'],
       tasks: ['build']
     },
 
@@ -46,10 +46,20 @@ module.exports = function(grunt) {
       dev: {
         script: 'server/server.js'
       }
+    },
+
+    concurrent: {
+      target: {
+        tasks: ['nodemon', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
     }
 
   });
 
+  grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -64,8 +74,8 @@ module.exports = function(grunt) {
      'cssmin']
   );
 
-  grunt.registerTask('start',
+  grunt.registerTask('default',
     ['build',
-     'watchst']
+     'concurrent']
   );
 };
